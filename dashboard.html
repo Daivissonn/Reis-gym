@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Painel do aluno Reis Gym - treinos personalizados e sua rotina de fitness." />
+    <title>Reis Gym - Painel do Aluno</title>
+    <script>
+      try {
+        var t = localStorage.getItem('reisGymTheme');
+        document.documentElement.setAttribute('data-theme', (t === 'light' || t === 'dark') ? t : 'dark');
+      } catch (e) {}
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand no-link" role="img" aria-label="Reis Gym">
+          <img src="reis-gym-logo.png" alt="Reis Gym logo" class="brand-logo" />
+          Reis Gym
+        </div>
+        <a class="btn btn-secondary header-back-link" href="index.html">Ver site</a>
+        <button class="theme-toggle" type="button" id="themeToggle" aria-label="Alternar tema claro/escuro">🌙 Escuro</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="section dashboard-section">
+        <div class="container">
+          <div class="section-header">
+            <p class="eyebrow">Painel do aluno</p>
+            <h2>Seu treino, sua rotina e seus resultados.</h2>
+            <p>Acesse os treinos previstos para você, escolha o foco e comece imediatamente.</p>
+          </div>
+
+          <div class="dashboard-placeholder" id="dashboardPlaceholder">
+            <p>Você precisa entrar com seu cadastro para acessar o painel de treinos.</p>
+            <a class="btn btn-primary" href="signup.html">Fazer login / cadastro</a>
+          </div>
+
+          <div class="dashboard-grid hidden" id="dashboardContent">
+            <div class="dashboard-panel">
+              <div class="dashboard-header">
+                <p class="eyebrow">Bem-vindo</p>
+                <h3 id="dashboardUserName">Aluno</h3>
+                <p id="dashboardUserMeta">Acesse para ver seu foco e plano.</p>
+              </div>
+ 
+              <div class="dashboard-stats">
+                <div class="stat-card">
+                  <span class="stat-value" id="dashboardFocus">Força</span>
+                  <span class="stat-label">Foco atual</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-value" id="dashboardPlanCount">3</span>
+                  <span class="stat-label">Treinos disponíveis</span>
+                </div>
+              </div>
+ 
+              <div class="card">
+                <h3>Seu plano</h3>
+                <p id="goalText">Plano de treino focado em força para seus próximos treinos.</p>
+                <ul id="dashboardWorkoutList" class="dashboard-workout-list"></ul>
+              </div>
+
+              <div class="card">
+                <h3>Progresso & Histórico</h3>
+                <p class="small-muted" id="streakText">Seu streak: <strong id="streakValue">0</strong> dias</p>
+                <div id="progressChart" class="progress-chart" aria-hidden="false"></div>
+              </div>
+
+              <div class="card" id="personalPanel" style="display:none;">
+                <h3>Painel do Personal</h3>
+                <div class="personal-count-card">
+                  <span class="personal-count-value" id="personalStudentCount">0</span>
+                  <span class="personal-count-label">alunos cadastrados</span>
+                </div>
+                <input type="search" id="personalSearch" class="personal-search" placeholder="Buscar aluno por nome ou telefone..." />
+                <div id="personalList"></div>
+              </div>
+ 
+              <div class="card">
+                <h3>Escolha o foco</h3>
+                <div class="focus-buttons">
+                  <button class="btn btn-secondary focus-option" type="button" data-focus="Força">Força</button>
+                  <button class="btn btn-secondary focus-option" type="button" data-focus="Hipertrofia">Hipertrofia</button>
+                  <button class="btn btn-secondary focus-option" type="button" data-focus="Condicionamento">Condicionamento</button>
+                  <button class="btn btn-secondary focus-option" type="button" data-focus="Emagrecimento">Emagrecimento</button>
+                </div>
+                <div class="focus-confirm" id="focusConfirm"></div>
+              </div>
+
+              <button class="btn btn-secondary" type="button" id="logoutButton">Sair</button>
+            </div>
+
+            <div class="dashboard-actions">
+              <div class="card">
+                <h3>Treinos disponíveis</h3>
+                <div id="workoutList" class="dashboard-workout-list"></div>
+              </div>
+ 
+              <div class="card" id="selectedWorkoutCard">
+                <h3 id="selectedWorkoutTitle">Selecione um treino</h3>
+                <p id="selectedWorkoutDescription">Clique em um dos treinos para visualizar o que será feito.</p>
+                <div class="selected-workout-detail hidden" id="selectedWorkoutDetails">
+                  <h4>Detalhes do treino</h4>
+                  <ul id="selectedWorkoutItems"></ul>
+                  <button class="btn btn-primary" type="button" id="startWorkoutButton">Ir para o treino</button>
+                </div>
+              </div>
+ 
+              <div class="card workout-schedule-card">
+                <div class="schedule-card-header">
+                  <h3>Agenda da semana</h3>
+                  <button class="btn btn-primary" type="button" id="openWorkoutBuilderBtn">+ Montar treino</button>
+                </div>
+                <div class="workout-schedule-preview">
+                  <div id="workoutSchedule" class="schedule-grid"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-overlay hidden" id="workoutBuilderModal">
+            <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="workoutBuilderTitle">
+              <div class="modal-header">
+                <h3 id="workoutBuilderTitle">Montar treino</h3>
+                <button class="modal-close" type="button" id="closeWorkoutBuilderBtn" aria-label="Fechar">✕</button>
+              </div>
+              <div class="modal-body">
+                <div id="exerciseLibraryCard">
+                  <h4>Biblioteca de exercícios</h4>
+                  <div class="library-controls">
+                    <input type="search" id="exerciseSearch" placeholder="Buscar exercício por nome..." />
+                    <select id="exerciseFilter" aria-label="Filtrar por grupo muscular">
+                      <option value="">Todos os grupos</option>
+                    </select>
+                  </div>
+                  <div id="exerciseList" class="exercise-list"></div>
+
+                  <div class="draft-workout">
+                    <h4>Treino em montagem</h4>
+                    <div id="draftWorkout" class="draft-list">Nenhum exercício adicionado ainda.</div>
+                    <div class="draft-actions">
+                      <button class="btn btn-primary" type="button" id="saveDraftBtn">Salvar como treino na semana</button>
+                      <button class="btn btn-secondary" type="button" id="clearDraftBtn">Limpar</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="modal-divider"><span>ou crie manualmente</span></div>
+
+                <form id="workoutForm" class="workout-form">
+                  <label for="workoutName">Nome do treino</label>
+                  <input type="text" id="workoutName" name="workoutName" placeholder="Treino de pernas" required />
+
+                  <label for="workoutDay">Dia da semana</label>
+                  <select id="workoutDay" name="workoutDay" required>
+                    <option value="Segunda">Segunda</option>
+                    <option value="Terça">Terça</option>
+                    <option value="Quarta">Quarta</option>
+                    <option value="Quinta">Quinta</option>
+                    <option value="Sexta">Sexta</option>
+                    <option value="Sábado">Sábado</option>
+                    <option value="Domingo">Domingo</option>
+                  </select>
+
+                  <label for="workoutPause">Pausa (minutos)</label>
+                  <input type="number" id="workoutPause" name="workoutPause" placeholder="2" min="0" value="2" required />
+
+                  <label for="workoutDuration">Duração estimada (minutos)</label>
+                  <input type="number" id="workoutDuration" name="workoutDuration" placeholder="45" min="5" value="45" required />
+
+                  <label for="workoutDescription">Descrição</label>
+                  <textarea id="workoutDescription" name="workoutDescription" rows="3" placeholder="Exemplo: agachamento, supino, remada..." required></textarea>
+
+                  <button class="btn btn-primary" type="submit">Adicionar ao treino</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 Reis Gym. Todos os direitos reservados.</p>
+        <p>Seu painel de treino, sempre à mão.</p>
+      </div>
+    </footer>
+
+    <script src="supabase-config.js"></script>
+    <script type="module">
+      import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+      window.supabaseClient = createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

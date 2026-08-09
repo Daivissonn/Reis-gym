@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Cadastro e login Reis Gym - crie sua conta ou acesse seu painel de treinos." />
+    <title>Reis Gym - Cadastro / Login</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="auth-page">
+    <header class="site-header auth-header">
+      <div class="container header-inner auth-header-inner">
+        <a class="brand" href="index.html">
+          <img src="reis-gym-logo.png" alt="Reis Gym logo" class="brand-logo" />
+          Reis Gym
+        </a>
+        <a class="auth-back-link" href="index.html">&larr; Voltar ao site</a>
+      </div>
+    </header>
+
+    <main class="auth-main">
+      <div class="container auth-container">
+        <div class="auth-card">
+          <p class="eyebrow">Acesso Reis Gym</p>
+          <h1 class="auth-title">Sua coroa, seu treino</h1>
+          <p class="auth-subtitle">Crie seu cadastro ou faça login para ver seus treinos da semana.</p>
+
+          <div class="access-tabs" role="tablist" aria-label="Acesso Reis Gym">
+            <button class="access-tab active" id="signup-tab" type="button" role="tab" aria-controls="signup-panel" aria-selected="true" data-target="signup-panel">Cadastro</button>
+            <button class="access-tab" id="login-tab" type="button" role="tab" aria-controls="login-panel" aria-selected="false" data-target="login-panel">Login</button>
+          </div>
+
+          <div class="access-panels">
+            <div class="access-panel active" id="signup-panel" role="tabpanel" aria-labelledby="signup-tab" aria-hidden="false">
+              <form class="signup-form" id="studentSignupForm" novalidate>
+                <label>
+                  Nome completo
+                  <input type="text" name="signupName" placeholder="Seu nome" required />
+                </label>
+                <label>
+                  Telefone / WhatsApp
+                  <input type="tel" name="signupPhone" placeholder="(71) 99999-9999" required />
+                </label>
+                <label>
+                  E-mail (opcional)
+                  <input type="email" name="signupEmail" placeholder="seu@email.com" />
+                </label>
+                <label>
+                  Senha ou código de acesso
+                  <input type="password" name="signupPassword" placeholder="Senha ou código" required />
+                </label>
+                <label>
+                  Você é
+                  <select name="signupRole">
+                    <option value="aluno" selected>Aluno</option>
+                    <option value="personal">Personal (treinador)</option>
+                  </select>
+                </label>
+                <button class="btn btn-primary" type="submit">Criar cadastro</button>
+                <p class="form-feedback" id="signupFeedback" aria-live="polite"></p>
+              </form>
+            </div>
+
+            <div class="access-panel" id="login-panel" role="tabpanel" aria-labelledby="login-tab" aria-hidden="true">
+              <form class="signup-form" id="studentLoginForm" novalidate>
+                <label>
+                  Telefone / WhatsApp
+                  <input type="tel" name="loginPhone" placeholder="(71) 99999-9999" />
+                </label>
+                <label>
+                  E-mail
+                  <input type="email" name="loginEmail" placeholder="seu@email.com" />
+                </label>
+                <label>
+                  Código de acesso
+                  <input type="text" name="loginCode" placeholder="Código enviado por WhatsApp" />
+                </label>
+                <label>
+                  Senha
+                  <input type="password" name="loginPassword" placeholder="Senha cadastrada" />
+                </label>
+                <div class="form-actions">
+                  <button class="btn btn-primary request-code-btn" type="button">Receber código</button>
+                  <button class="btn btn-secondary" type="submit">Entrar</button>
+                </div>
+                <p class="form-feedback" id="loginFeedback" aria-live="polite"></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 Reis Gym. Todos os direitos reservados.</p>
+        <p>Design criado para sua rotina mais forte.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

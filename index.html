@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Reis Gym - academia premium com treinos, planos e atendimento personalizado em Salvador." />
+    <title>Reis Gym - Academia</title>
+    <script>
+      try {
+        var t = localStorage.getItem('reisGymTheme');
+        document.documentElement.setAttribute('data-theme', (t === 'light' || t === 'dark') ? t : 'dark');
+      } catch (e) {}
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#home">
+          <img src="reis-gym-logo.png" alt="Reis Gym logo" class="brand-logo" />
+          Reis Gym
+        </a>
+        <nav class="main-nav" id="mainNav" role="navigation" aria-label="Menu principal" aria-hidden="false">
+          <a href="#home">Início</a>
+          <a href="#services">Serviços</a>
+          <a href="#plans">Planos</a>
+          <a href="signup.html">Cadastre-se</a>
+          <a href="dashboard.html">Painel</a>
+          <a href="#about">Sobre</a>
+          <a href="#contact">Contato</a>
+        </nav>
+        <a class="btn btn-primary header-cta" href="signup.html">Entrar / Cadastrar</a>
+        <button class="theme-toggle" type="button" id="themeToggle" aria-label="Alternar tema claro/escuro">🌙 Escuro</button>
+        <button class="btn btn-primary mobile-menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">Menu</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero-grid">
+          <div>
+              <p class="eyebrow">Reis Gym</p>
+              <h1>Sua coroa, sua força: treinos que fazem você vencer.</h1>
+            <p>
+                Venha para a melhor experiência fitness em um ambiente premium com
+                cores fortes, equipe experiente e resultados reais.
+            </p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="#plans">Ver planos</a>
+                <a class="btn btn-secondary" href="#about">Nossa história</a>
+            </div>
+          </div>
+          <div class="hero-card">
+            <div class="hero-card-content">
+                <img src="reis-gym-logo.png" alt="Logo Reis Gym" class="hero-logo" />
+                <h2>Treine com atitude</h2>
+                <p>Espaço completo com estrutura moderna e planos que cabem no seu bolso.</p>
+                <ul>
+                  <li>Equipamentos de alta performance</li>
+                  <li>Aulas de HIIT, funcional e musculação</li>
+                  <li>Planos flexíveis de R$30 a R$1020</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="container">
+          <div class="section-header">
+            <p class="eyebrow">O que oferecemos</p>
+            <h2>Serviços pensados para seu resultado</h2>
+          </div>
+          <div class="cards-grid">
+            <article class="card">
+              <h3>Musculação</h3>
+              <p>Área completa com equipamentos modernos e treinos orientados por instrutores.</p>
+            </article>
+            <article class="card">
+              <h3>Cardio</h3>
+              <p>Esteiras, bicicletas e elípticos para treino cardiovascular eficiente.</p>
+            </article>
+            <article class="card">
+              <h3>Aulas em grupo</h3>
+              <p>Funcional, HIIT e alongamento para todas as idades e níveis.</p>
+            </article>
+            <article class="card">
+              <h3>Assessoria</h3>
+              <p>Treinamento personalizado com acompanhamento dedicado.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="plans">
+        <div class="container">
+          <div class="section-header">
+            <p class="eyebrow">Tabela de Valores</p>
+            <h2>Escolha o plano que combina com seu ritmo</h2>
+            <p>Planos flexíveis para quem quer treinar com responsabilidade e resultados rápidos.</p>
+          </div>
+          <div class="pricing-grid">
+            <article class="card pricing-card">
+              <h3>Passe Diário</h3>
+              <p class="price">R$ 30</p>
+              <p>Perfeito para experimentar a estrutura premium e sentir o ambiente da Reis Gym.</p>
+              <ul>
+                <li>Acesso total por 1 dia</li>
+                <li>Sem fidelidade</li>
+                <li>Equipamentos liberados</li>
+              </ul>
+              <button class="btn btn-secondary" type="button">Escolher</button>
+            </article>
+            <article class="card pricing-card featured">
+              <span class="badge">Mais popular</span>
+              <h3>Plano Mensal</h3>
+              <p class="price">R$ 100</p>
+              <p>Melhor custo-benefício para quem quer consistência e resultados rápidos.</p>
+              <ul>
+                <li>Acesso ilimitado</li>
+                <li>Aulas de grupo inclusas</li>
+                <li>Suporte de instrutores</li>
+              </ul>
+              <button class="btn btn-primary" type="button">Assinar agora</button>
+            </article>
+            <article class="card pricing-card">
+              <h3>Plano Anual</h3>
+              <p class="price">R$ 1020</p>
+              <p>Economia para quem se compromete com objetivos de longo prazo.</p>
+              <ul>
+                <li>12 meses de acesso</li>
+                <li>Maior economia</li>
+                <li>Prioridade em horários</li>
+              </ul>
+              <button class="btn btn-secondary" type="button">Garantir desconto</button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section signup-section" id="cadastro">
+        <div class="container signup-grid">
+          <div class="signup-copy">
+            <p class="eyebrow">Cadastro do aluno</p>
+            <h2>O essencial, feito de forma simples</h2>
+            <p>
+              Cadastre o aluno da Reis Gym com os dados que realmente fazem sentido
+              para a operação da academia: um canal direto de contato e uma forma
+              prática de acesso.
+            </p>
+            <div class="signup-note">
+              <h3>Obrigatório</h3>
+              <ul class="signup-benefits">
+                <li>Nome</li>
+                <li>Telefone/WhatsApp (login e canal de contato)</li>
+                <li>E-mail (opcional se já tiver telefone)</li>
+                <li>Senha ou código enviado por WhatsApp/SMS</li>
+              </ul>
+            </div>
+            <div class="signup-note">
+              <h3>Evite pedir</h3>
+              <ul class="signup-benefits">
+                <li>CPF, a menos que seja para nota fiscal ou contrato</li>
+                <li>Endereço e foto, se não houver necessidade clara</li>
+                <li>Dados de saúde detalhados fora da ficha de anamnese</li>
+              </ul>
+            </div>
+            <p class="signup-tip">
+              Regra prática: cada campo precisa responder “pra que exatamente eu vou usar isso?”.
+            </p>
+          </div>
+
+          <div class="signup-teaser-card">
+            <p class="eyebrow">Pronto pra começar?</p>
+            <h3>Crie seu cadastro ou faça login</h3>
+            <p>Acesse seu painel de treinos em menos de um minuto.</p>
+            <a class="btn btn-primary" href="signup.html">Ir para cadastro / login</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container about-grid">
+          <div class="about-copy">
+            <p class="eyebrow">Sobre nós</p>
+            <h2 class="about-heading">A academia que eleva seu treino ao próximo nível</h2>
+            <p>
+              Na Reis Gym, cada treino é projetado para dar mais força, confiança
+              e resultado. Ambiente acolhedor para todos, com instrutores
+              experientes e plano de apoio completo para quem quer vencer.
+            </p>
+            <div class="pill-list">
+              <span class="pill">5,0 (4)</span>
+              <span class="pill">Academia</span>
+              <span class="pill">LGBTQ+ friendly</span>
+            </div>
+            <div class="business-stats">
+              <div class="stat-card">
+                <span class="stat-value">5.0</span>
+                <span class="stat-label">Nota média</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-value">4</span>
+                <span class="stat-label">Avaliações</span>
+              </div>
+            </div>
+            <ul class="about-list">
+              <li>Equipe dedicada e treinamentos personalizados</li>
+              <li>Estrutura completa para musculação, cardio e aulas em grupo</li>
+              <li>Ambiente moderno e seguro aberto para toda a comunidade</li>
+            </ul>
+          </div>
+          <aside class="business-panel">
+            <div class="panel-header">Visão geral</div>
+            <ul class="business-info">
+              <li>
+                <strong>Endereço</strong>
+                <span>R. 7 de Janeiro, 57 - Cidade Nova, Salvador - BA, 41313-170</span>
+              </li>
+              <li>
+                <strong>Telefone</strong>
+                <span>(71) 3214-0870</span>
+              </li>
+              <li>
+                <strong>Horário</strong>
+                <span>Fechado · Abre seg. às 05:00</span>
+              </li>
+              <li>
+                <strong>Localização</strong>
+                <span>2GP7+8P Cidade Nova, Salvador - BA</span>
+              </li>
+            </ul>
+            <div class="review-summary">
+              <h3>O que o público diz</h3>
+              <p>Equipe maravilhosa, profissionais super atenciosos.</p>
+              <p>Excelente ambiente e atendimento humanizado.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section-alt testimonials" id="testimonials">
+        <div class="container">
+          <div class="section-header">
+            <p class="eyebrow">Depoimentos</p>
+            <h2>O que nossos alunos dizem</h2>
+          </div>
+          <div class="cards-grid testimonial-grid">
+            <article class="card testimonial-card">
+              <p>"A Reis Gym me ajudou a recuperar a forma e ganhar confiança. Atendimento excelente!"</p>
+              <strong>Mariana Silva</strong>
+            </article>
+            <article class="card testimonial-card">
+              <p>"Os treinos são dinâmicos e os professores estão sempre à disposição para orientar."</p>
+              <strong>Lucas Pereira</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="container contact-grid">
+          <div>
+            <p class="eyebrow">Contato</p>
+            <h2>Conecte-se com a equipe Reis Gym</h2>
+            <p>
+              Preencha o formulário abaixo e receba uma resposta rápida do nosso
+              time para começar seu treino com tudo.
+            </p>
+            <div class="contact-info">
+              <p><strong>Endereço:</strong> R. 7 de Janeiro, 57 - Cidade Nova, Salvador - BA, 41313-170</p>
+              <p><strong>Telefone:</strong> +55 71 3214-0870</p>
+              <p><strong>Localização:</strong> <a href="https://www.google.com/maps/search/?api=1&query=2GP7%2B8P+Cidade+Nova+Salvador+BA" target="_blank" rel="noopener">Ver no Google Maps</a></p>
+            </div>
+            <div class="map-frame">
+              <iframe
+                title="Mapa Reis Gym"
+                src="https://maps.google.com/maps?q=2GP7%2B8P+Cidade+Nova+Salvador+BA&output=embed"
+                allowfullscreen=""
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+          <form class="contact-form" id="contactForm" novalidate>
+            <label>
+              Nome completo
+              <input type="text" name="name" placeholder="Seu nome" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" placeholder="seu@email.com" required />
+            </label>
+            <label>
+              Mensagem
+              <textarea name="message" rows="4" placeholder="Como podemos ajudar?" required></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Enviar mensagem</button>
+            <p class="form-feedback" id="formFeedback" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 Reis Gym. Todos os direitos reservados.</p>
+        <p>Design criado para sua rotina mais forte.</p>
+      </div>
+    </footer>
+
+    <script src="supabase-config.js"></script>
+    <script type="module">
+      import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+      window.supabaseClient = createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
